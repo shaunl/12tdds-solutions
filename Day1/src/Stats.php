@@ -16,26 +16,51 @@
  */
 class Stats
 {
+    /**
+     * @param array $input
+     *
+     * @return int
+     */
     public function minValue($input)
     {
         return min($input);
     }
 
+    /**
+     * @param array $input
+     *
+     * @return int
+     */
     public function maxValue($input)
     {
         return max($input);
     }
 
+    /**
+     * @param array $input
+     *
+     * @return int
+     */
     public function countElements($input)
     {
         return count($input);
     }
 
+    /**
+     * @param array $input
+     *
+     * @return float
+     */
     public function average($input)
     {
         return $this->sum($input) / $this->countElements($input);
     }
 
+    /**
+     * @param array $input
+     *
+     * @return int
+     */
     private function sum($input)
     {
         return array_sum($input);
