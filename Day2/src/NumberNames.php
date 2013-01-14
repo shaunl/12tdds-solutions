@@ -161,15 +161,20 @@ class NumberNames
         return $this->specialCases[10 + $prevDigit];
     }
 
+    /**
+     * @param array $names
+     *
+     * @return array
+     */
     private function getDigitNames($names)
     {
         $length = count($names);
-        $name = array();
-        $i    = 0;
+        $name   = array();
+        $i      = 0;
 
         foreach ($names as $digit) {
             $name[] = array_key_exists($i, $this->powersOfTen) ? $this->powersOfTen[$i] : null;
-            if($i % 5 == 0 && $i != 0) {
+            if ($i % 5 == 0 && $i != 0) {
                 $name[] = 'hundred';
             }
             $i++;
