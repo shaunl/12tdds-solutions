@@ -73,25 +73,25 @@ class NumberNames
         1  => null, // omitted as it's coverd by multiples
         2  => 'hundred',
         3  => 'thousand,',
-        6  => 'million',
-        9  => 'billion',
-        12 => 'trillion',
-        15 => 'quadrillion',
-        18 => 'quintillion',
-        24 => 'septillion',
-        27 => 'octillion',
-        30 => 'nonillion',
-        33 => 'decillion',
-        36 => 'undecillion',
-        39 => 'duodecillion',
-        42 => 'tredecillion',
-        45 => 'quattuordecillion',
-        48 => 'quindecillion',
-        51 => 'sexdecillion',
-        54 => 'septendecillion',
-        57 => 'octodecillion',
-        60 => 'novemdecillion',
-        63 => 'vigintillion',
+        6  => 'million,',
+        9  => 'billion,',
+        12 => 'trillion,',
+        15 => 'quadrillion,',
+        18 => 'quintillion,',
+        24 => 'septillion,',
+        27 => 'octillion,',
+        30 => 'nonillion,',
+        33 => 'decillion,',
+        36 => 'undecillion,',
+        39 => 'duodecillion,',
+        42 => 'tredecillion,',
+        45 => 'quattuordecillion,',
+        48 => 'quindecillion,',
+        51 => 'sexdecillion,',
+        54 => 'septendecillion,',
+        57 => 'octodecillion,',
+        60 => 'novemdecillion,',
+        63 => 'vigintillion,',
     );
 
     /**
@@ -169,6 +169,9 @@ class NumberNames
 
         foreach ($names as $digit) {
             $name[] = array_key_exists($i, $this->powersOfTen) ? $this->powersOfTen[$i] : null;
+            if($i % 5 == 0 && $i != 0) {
+                $name[] = 'hundred';
+            }
             $i++;
             $pattern = array_shift($this->pronunciationPattern);
 
