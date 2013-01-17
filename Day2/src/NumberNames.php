@@ -141,7 +141,7 @@ class NumberNames
      */
     public function insertConjunctions(array $names)
     {
-        foreach ($names as &$name) {
+        foreach ($names as $index => &$name) {
             $name = ($name === 'hundred' && count($names) > 2) ? 'hundred and' : $name;
         }
 
@@ -174,7 +174,7 @@ class NumberNames
 
         foreach ($names as $digit) {
             $name[] = array_key_exists($i, $this->powersOfTen) ? $this->powersOfTen[$i] : null;
-            if ($i % 5 == 0 && $i != 0) {
+            if ($i % 5 == 0 && $i != 0 && $digit != 0) {
                 $name[] = 'hundred';
             }
             $i++;
